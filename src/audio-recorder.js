@@ -615,6 +615,8 @@ export class AudioRecorder extends HTMLElement {
     const devices = await navigator.mediaDevices.enumerateDevices();
     const audioDevices = devices.filter(device => device.kind === 'audioinput');
     console.log('Audio Devices', audioDevices);
+    // Clear the select input
+    this.microphoneSelectInput.innerHTML = '';
     for(const device of audioDevices) {
       const option = document.createElement('option');
       option.value = device.deviceId;
